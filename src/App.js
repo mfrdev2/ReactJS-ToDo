@@ -1,15 +1,23 @@
 import React from 'react';
 import Card from './Components/component.card';
-const des = "desc -1";
+import data from './data.json';
+
 
 function App() {
+     let item = [];
+    // for (let i in data) {
+    //    item.push(<Card title={data[i].title} desc={data[i].desc} />)
+    // }
+    item = data.map((i,k)=>
+        <Card key ={k} title={i.title} desc={i.desc} />
+    );
     return <div>
         <h1 class="heading">Todo App</h1>
-        <Card title = "Title-1" desc = '$des-1'/>
-        <Card title = "Title-2" desc = '$des-2'/>
-        <Card title = "Title-3" desc = '$des-3'/>
-        <Card title = "Title-4" desc = '$des-4'/>
-        <Card title = "Title-5" desc = '$des-5'/>
+            {item}
+
+        {/* <Card title={data[1].title} desc={data[1].desc} />
+        <Card title={data[2].title} desc={data[2].desc} />
+        <Card title={data[3].title} desc={data[3].desc} /> */}
     </div>
 }
 
